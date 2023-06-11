@@ -33,7 +33,7 @@ namespace Database
         public List<IBase> Buscar()
         {
            var lista = new List<IBase>();   
-           using(MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=cursoads;database=bd_fretamento;port=3306"))
+           using(MySqlConnection connection = new MySqlConnection(connectionString))
            {
                 List<string> where = new List<string>();
                 string chaveprimaria = string.Empty;
@@ -111,7 +111,7 @@ namespace Database
 
         public void CriarTabela()
         {
-            using (MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=cursoads;database=bd_fretamento;port=3306"))
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 List<string> campos = new List<string>();
                 string chavePrimaria = "";
@@ -143,7 +143,7 @@ namespace Database
 
         public void Excluir()
         {
-            using (MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=cursoads;database=bd_fretamento;port=3306"))
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 string sql="delete from "+this.GetType().Name+"s where id="+this.Key + ";";
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
@@ -154,7 +154,7 @@ namespace Database
         }
         public void Salvar()
         {
-            using (MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=cursoads;database=bd_fretamento;port=3306"))
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 List<string> campos = new List<string>();
                 List<string> valores = new List<string>();
@@ -194,7 +194,7 @@ namespace Database
         public List<IBase> Todos()
         {
             var lista = new List<IBase>();
-            using (MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=cursoads;database=bd_fretamento;port=3306"))
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 string sql = "select * from " + this.GetType().Name + "s ";
                 MySqlCommand mySql = new MySqlCommand(sql, connection);

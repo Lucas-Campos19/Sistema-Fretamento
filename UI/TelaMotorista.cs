@@ -31,6 +31,7 @@ namespace Sistema_Onibus
             if(txtId.Text != "")
             {
                 mot.ID = int.Parse(txtId.Text);
+                MessageBox.Show("Atualizado com sucesso");
             }
             mot.Nome = txtNome.Text;    
             mot.Cpf = txtCpf.Text;
@@ -38,6 +39,7 @@ namespace Sistema_Onibus
             mot.Cnh = txtCnh.Text;  
             mot.Celular = txtCelular.Text;  
             mot.Endereco = txtEndereco.Text;
+            MessageBox.Show("Salvo com sucesso");
             mot.Salvar();
             Carrega_DataGrid();
             Limpar();
